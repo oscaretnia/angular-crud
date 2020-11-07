@@ -44,10 +44,11 @@ export class FormsComponent implements OnInit {
     const data = this.data.data;
 
     this.frm = this.fb.group({
-      first_name: new FormControl(IS_EDITING ? data.first_name : null, [Validators.required, Validators.minLength(3)]),
-      last_name: new FormControl(IS_EDITING ? data.last_name : null, [Validators.required, Validators.minLength(3)]),
-      age: new FormControl(IS_EDITING ? data.age : null, [Validators.required, Validators.minLength(1)]),
-      gender: new FormControl(IS_EDITING ? data.gender : null, [Validators.required]),
+      code: new FormControl(IS_EDITING ? data.code : null, [Validators.required]),
+      name: new FormControl(IS_EDITING ? data.name : null, [Validators.required]),
+      description: new FormControl(IS_EDITING ? data.description : null, [Validators.required]),
+      reference: new FormControl(IS_EDITING ? data.reference : null, [Validators.required]),
+      locationStorage: new FormControl(IS_EDITING ? data.locationStorage : null, [Validators.required]),
       id: new FormControl(IS_EDITING ? data.id : null)
     });
   }
@@ -62,23 +63,24 @@ export class FormsComponent implements OnInit {
     });
   }
 
+  public getCodeErrorMessage() {
+    return this.frm.controls.code.hasError('required') ? 'Code is required' : '';
+  }
+
   public getNameErrorMessage() {
-    return this.frm.controls.first_name.hasError('required') ? 'First name is required' :
-      this.frm.controls.name.hasError('minlength') ? 'Al menos 2 caracteres' : '';
+    return this.frm.controls.name.hasError('required') ? 'Name is required' : '';
   }
 
-  public getLastNameErrorMessage() {
-    return this.frm.controls.last_name.hasError('required') ? 'Last name is required' :
-      this.frm.controls.name.hasError('minlength') ? 'Al menos 2 caracteres' : '';
+  public getDescriptionErrorMessage() {
+    return this.frm.controls.description.hasError('required') ? 'Description is required' : '';
   }
 
-  public getAgeErrorMessage() {
-    return this.frm.controls.age.hasError('required') ? 'Age is required' :
-      this.frm.controls.age.hasError('minlength') ? 'Al menos un numero debe ser ingresado' : '';
+  public getReferenceErrorMessage() {
+    return this.frm.controls.reference.hasError('required') ? 'Reference is required' : '';
   }
 
-  public getGenderErrorMessage() {
-    return this.frm.controls.gender.hasError('required') ? '' : '';
+  public getLocationStorageErrorMessage() {
+    return this.frm.controls.locationStorage.hasError('required') ? 'Location Storage is required' : '';
   }
 
 }
