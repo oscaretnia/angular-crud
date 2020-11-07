@@ -49,6 +49,7 @@ export class FormsComponent implements OnInit {
       description: new FormControl(IS_EDITING ? data.description : null, [Validators.required]),
       reference: new FormControl(IS_EDITING ? data.reference : null, [Validators.required]),
       locationStorage: new FormControl(IS_EDITING ? data.locationStorage : null, [Validators.required]),
+      image: new FormControl(IS_EDITING ? data.image : null, [Validators.required]),
       id: new FormControl(IS_EDITING ? data.id : null)
     });
   }
@@ -81,6 +82,10 @@ export class FormsComponent implements OnInit {
 
   public getLocationStorageErrorMessage() {
     return this.frm.controls.locationStorage.hasError('required') ? 'Location Storage is required' : '';
+  }
+
+  public getImageErrorMessage() {
+    return this.frm.controls.image.hasError('required') ? 'Image is required' : '';
   }
 
 }

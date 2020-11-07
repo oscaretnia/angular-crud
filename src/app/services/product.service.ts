@@ -41,6 +41,22 @@ export class ProductService implements Provider {
   }
 
   save(product: Product): Observable<Response> {
+
+    if (product.id) {
+      return this.http.patch<Response>(
+        CONSTANST.routes.product.update.replace(':id', String(product.id)),
+        {
+          code: product.code,
+          name: product.name,
+          description: product.description,
+          reference: product.reference,
+          locationStorage: product.locationStorage,
+          image: product.image
+        },
+        { headers: this.headers }
+      );
+    } 
+
     return this.http.post<Response>(
       CONSTANST.routes.product.save,
       {
@@ -49,7 +65,7 @@ export class ProductService implements Provider {
         description: product.description,
         reference: product.reference,
         locationStorage: product.locationStorage,
-        id: product.id
+        image: product.image
       },
       { headers: this.headers }
     );

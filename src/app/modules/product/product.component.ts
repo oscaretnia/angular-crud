@@ -25,7 +25,7 @@ import { Controller } from '~base/controller';
   providers: [ProductService]
 })
 export class ProductComponent implements AfterViewInit, OnInit, Controller {
-  public displayedColumns = ['id', 'code', 'name', 'description', 'reference', 'location', 'created', 'productid'];
+  public displayedColumns = ['id', 'code', 'name', 'description', 'reference', 'location', 'image', 'created', 'productid'];
   public pageSizeOptions = [5, 10, 20, 40, 100];
   public pageSize = 20;
   public dataSource = new MatTableDataSource();
@@ -111,7 +111,7 @@ export class ProductComponent implements AfterViewInit, OnInit, Controller {
       if (data.success) {
         const dialogRef = this.dialog.open(FormsComponent, {
           width: '400px',
-          data: { title: 'Update person', action: 'edit', data: data.data }
+          data: { title: 'Update product', action: 'edit', data: data.data }
         });
 
         dialogRef.afterClosed().subscribe(result => {

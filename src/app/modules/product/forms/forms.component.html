@@ -35,6 +35,13 @@
       <mat-error *ngIf="frm.controls.locationStorage.invalid">{{getLocationStorageErrorMessage()}}</mat-error>
     </mat-form-field>
 
+    <br />
+
+    <mat-form-field>
+      <input matInput placeholder="Image" formControlName="image" class="person-input">
+      <mat-error *ngIf="frm.controls.image.invalid">{{getImageErrorMessage()}}</mat-error>
+    </mat-form-field>
+
     <mat-form-field style="visibility: hidden; height: 0vh !important">
       <input matInput type="text" formControlName='id'>
     </mat-form-field>

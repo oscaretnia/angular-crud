@@ -59,12 +59,17 @@
 
         <ng-container matColumnDef="location">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Location</mat-header-cell>
-          <mat-cell *matCellDef="let row">{{ row.location }}</mat-cell>
+          <mat-cell *matCellDef="let row">{{ row.locationStorage }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="image">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.image }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="created">
           <mat-header-cell *matHeaderCellDef>Created at</mat-header-cell>
-          <mat-cell *matCellDef="let row">{{ row.created_at | date:'dd/MM/yyyy' }}</mat-cell>
+          <mat-cell *matCellDef="let row">{{ row.createdAt | date:'dd/MM/yyyy' }}</mat-cell>
         </ng-container>
 
         <!-- Table actions -->
