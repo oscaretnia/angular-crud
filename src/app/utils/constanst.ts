@@ -9,7 +9,7 @@ export const CONSTANST = {
         },
         product: {
             list: HOST + '/api/product',
-            delete: HOST + '/api/product/delete/:id',
+            delete: HOST + '/api/product/:id',
             save: HOST + '/api/product/save',
             get: HOST + '/api/product/:id'
         },

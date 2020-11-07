@@ -90,13 +90,7 @@ export class ProductComponent implements AfterViewInit, OnInit, Controller {
         startWith({}),
         switchMap(() => {
           this.isLoading = true;
-          return this.productService.getList(
-            this.sort.active,
-            this.sort.direction,
-            this.pageSize,
-            this.page,
-            this.search
-          );
+          return this.productService.getList();
         }),
         map(data => {
           this.isLoading = false;

@@ -16,20 +16,13 @@ export class ProductService implements Provider {
   ) { }
 
   headers = new HttpHeaders({
-    'Authorization': 'JWT ' + localStorage.getItem('token')
+    'x-access-token': localStorage.getItem('token')
   });
 
-  getList(sortActive: string, order: string, pageSize: number, page: number, search: string): Observable<Response> {
-    let params = new HttpParams();
-    params = params.append('active', sortActive);
-    params = params.append('order', order);
-    params = params.append('search', search);
-    params = params.append('pageSize', pageSize.toString());
-    params = params.append('page', page.toString());
-
+  getList(): Observable<Response> {
     return this.http.get<Response>(
       CONSTANST.routes.product.list,
-      { headers: this.headers, params: params }
+      { headers: this.headers }
     );
   }
 
