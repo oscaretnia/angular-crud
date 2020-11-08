@@ -5,7 +5,7 @@ export interface Product {
   description: string;
   reference: string;
   locationStorage: string;
-  image: string;
+  image: any;
   created_at: Date;
   updated_at: Date;
 }

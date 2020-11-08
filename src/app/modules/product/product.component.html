@@ -64,7 +64,9 @@
 
         <ng-container matColumnDef="image">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
-          <mat-cell *matCellDef="let row">{{ row.image }}</mat-cell>
+          <mat-cell *matCellDef="let row">
+            <img src="{{ row.image }}" width="100px" onmousedown="return false;">
+          </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="created">

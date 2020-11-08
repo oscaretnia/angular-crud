@@ -17,7 +17,6 @@ import { AuthGuard } from '~guards/auth.guard';
 // COMPONENTS
 import { AppComponent } from '~components/app/app.component';
 import { TablesComponent } from '~components/tables/tables.component';
-import { ContactUsComponent } from '~components/contact-us/contact-us.component';
 import { NotFoundComponent } from '~components/not-found/not-found.component';
 import { ConfirmComponent } from '~components/confirm/confirm.component';
 import { SnackbarComponent } from '~components/snackbar/snackbar.component';
@@ -37,7 +36,6 @@ import { LoginLayoutModule } from '~modules/login-layout/login-layout.module';
   declarations: [ /*DECLARACIÓN DE COMPONENTES*/
     AppComponent,
     TablesComponent,
-    ContactUsComponent,
     NotFoundComponent,
     ConfirmComponent,
     SnackbarComponent,

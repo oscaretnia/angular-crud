@@ -1,7 +1,7 @@
 <h1 mat-dialog-title> {{ data.title }}</h1>
 
 <div mat-dialog-content>
-  <form [formGroup]="frm">
+  <form [formGroup]="frm" enctype="multipart/form-data">
     <mat-form-field>
       <input matInput placeholder="Code" formControlName="code" class="person-input">
       <mat-error *ngIf="frm.controls.code.invalid">{{getCodeErrorMessage()}}</mat-error>
@@ -37,10 +37,11 @@
 
     <br />
 
-    <mat-form-field>
-      <input matInput placeholder="Image" formControlName="image" class="person-input">
-      <mat-error *ngIf="frm.controls.image.invalid">{{getImageErrorMessage()}}</mat-error>
-    </mat-form-field>
+    <div mat-dialog-actions>
+      <button type="button" mat-raised-button (click)="fileInput.click()">Choose Image</button>
+      <input hidden (change)="onFileSelect($event)" #fileInput type="file" id="file" accept="image/*">
+      <label class="custom-file-label" for="fileInput">{{fileInputLabel}}</label>
+    </div>
 
     <mat-form-field style="visibility: hidden; height: 0vh !important">
       <input matInput type="text" formControlName='id'>

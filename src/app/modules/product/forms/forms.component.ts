@@ -14,6 +14,7 @@ import { SnackbarComponent } from '~components/snackbar/snackbar.component';
 
 export class FormsComponent implements OnInit {
   public frm: FormGroup;
+  fileInputLabel: string;
 
   constructor(
     public dialogRef: MatDialogRef<FormsComponent>,
@@ -54,10 +55,15 @@ export class FormsComponent implements OnInit {
     });
   }
 
+  public onFileSelect(event: any) {
+    const file = event.target.files[0];
+    this.fileInputLabel = file.name;
+    this.frm.get('image').setValue(file);
+  }
+
   public save(form: FormGroup) {
     this.productService.save(form.value).subscribe((data: any) => {
       this.openSnack(data);
-
       if (data.success) {
         this.dialogRef.close(true);
       }

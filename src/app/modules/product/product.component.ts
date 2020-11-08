@@ -103,7 +103,9 @@ export class ProductComponent implements AfterViewInit, OnInit, Controller {
           this.isTotalReached = true;
           return observableOf([]);
         })
-      ).subscribe(data => this.dataSource.data = data);
+      ).subscribe(data => {
+        this.dataSource.data = data
+      });
   }
 
   edit(product: Product): void {
